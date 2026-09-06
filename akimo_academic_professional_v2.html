@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1f33" />
+
+  <title>Akimo Energy Analytics | Research & Clean-Energy Intelligence</title>
+  <meta name="description"
+        content="Akimo Energy Analytics is an independent research and analytics initiative focused on renewable energy, green hydrogen, decarbonisation, and climate policy in Latin America." />
+
+  <meta property="og:title" content="Akimo Energy Analytics" />
+  <meta property="og:description"
+        content="Evidence-based research and analytics for the clean-energy transition." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --ink: #102132;
+      --ink-2: #1d3448;
+      --navy: #0b1f33;
+      --navy-2: #12324d;
+      --teal: #129e9a;
+      --green: #6ab65a;
+      --sky: #47a7d7;
+      --orange: #f0a43a;
+      --paper: #fbfcfc;
+      --paper-2: #f4f7f8;
+      --white: #ffffff;
+      --muted: #647586;
+      --line: #dbe4e8;
+      --line-dark: rgba(255,255,255,.13);
+      --shadow: 0 18px 50px rgba(20, 46, 66, .09);
+      --shadow-soft: 0 10px 28px rgba(20, 46, 66, .07);
+      --max: 1180px;
+      --radius: 20px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      color: var(--teal);
+      font-size: .78rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section.alt {
+      background: var(--white);
+      border-top: 1px solid #eef2f4;
+      border-bottom: 1px solid #eef2f4;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: end;
+      gap: 48px;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      max-width: 13ch;
+      color: var(--navy);
+      font-size: clamp(2rem, 3.9vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      max-width: 65ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(16,33,50,.08);
+      background: rgba(251,252,252,.91);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 250px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .brand-copy {
+      line-height: 1.1;
+    }
+
+    .brand-copy strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1rem;
+      letter-spacing: -.02em;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #526779;
+      font-size: .91rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid #bed0d8;
+      border-radius: 999px;
+      color: var(--navy);
+      background: white;
+      font-size: .88rem;
+      font-weight: 750;
+      transition: .2s ease;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f8fbfb 66%, #f4f7f8 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -180px;
+      width: 470px;
+      height: 470px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle,
+          rgba(71,167,215,.14) 0 29%,
+          rgba(18,158,154,.07) 30% 49%,
+          transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 68px;
+      padding: 82px 0 88px;
+    }
+
+    .hero h1 {
+      max-width: 9.8ch;
+      margin-bottom: 26px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.25rem, 6.9vw, 6.7rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      color: var(--teal);
+      font-style: normal;
+    }
+
+    .hero-lead {
+      max-width: 66ch;
+      margin-bottom: 30px;
+      color: #53697a;
+      font-size: 1.12rem;
+    }
+
+    .hero-lead strong {
+      color: var(--ink);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 10px;
+      font-size: .91rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--navy);
+      box-shadow: 0 10px 24px rgba(11,31,51,.14);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #cbd9df;
+      color: var(--navy);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.88);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-stage {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      margin-bottom: 22px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, #f7fbfc, #ffffff);
+      border: 1px solid #e7eef1;
+    }
+
+    .logo-stage img {
+      width: min(220px, 65%);
+      border-radius: 18px;
+    }
+
+    .snapshot {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .snapshot-row {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 16px;
+      padding: 15px 17px;
+      border-bottom: 1px solid #edf2f4;
+    }
+
+    .snapshot-row:last-child {
+      border-bottom: 0;
+    }
+
+    .snapshot-row strong {
+      color: var(--navy);
+      font-size: .79rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .snapshot-row span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* Focus */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .focus-card {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow-soft);
+      transition: .22s ease;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfd7dc;
+      box-shadow: 0 16px 42px rgba(20,46,66,.10);
+    }
+
+    .focus-number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 32px;
+      border-radius: 50%;
+      color: var(--teal);
+      background: #eff9f8;
+      font-size: .8rem;
+      font-weight: 850;
+    }
+
+    .focus-card h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 1.22rem;
+      letter-spacing: -.02em;
+    }
+
+    .focus-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    /* Approach */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .approach-intro {
+      padding: 34px;
+      border-radius: var(--radius);
+      color: white;
+      background:
+        linear-gradient(145deg, var(--navy), #133e5c);
+      box-shadow: var(--shadow);
+    }
+
+    .approach-intro .eyebrow {
+      color: #8fe1d8;
+    }
+
+    .approach-intro h3 {
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.15rem;
+      line-height: 1.15;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .approach-intro p {
+      margin-bottom: 0;
+      color: rgba(255,255,255,.74);
+    }
+
+    .method-list {
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .method {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      padding: 23px 26px;
+      border-bottom: 1px solid #edf2f4;
+    }
+
+    .method:last-child {
+      border-bottom: 0;
+    }
+
+    .method-index {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #d8e7e8;
+      border-radius: 12px;
+      color: var(--teal);
+      background: #f8fbfb;
+      font-size: .8rem;
+      font-weight: 850;
+    }
+
+    .method h3 {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .method p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .91rem;
+    }
+
+    /* Regional work */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .region-card {
+      position: relative;
+      min-height: 280px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .region-card::after {
+      content: "";
+      position: absolute;
+      right: -44px;
+      bottom: -44px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 24px solid rgba(18,158,154,.055);
+    }
+
+    .region-kicker {
+      margin-bottom: 28px;
+      color: var(--teal);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .region-card h3 {
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+    }
+
+    .region-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    /* Evidence bridge */
+    .bridge {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: var(--navy);
+    }
+
+    .bridge::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+    }
+
+    .bridge-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .bridge h2 {
+      max-width: 12ch;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 4.6vw, 4.4rem);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+      font-weight: 500;
+    }
+
+    .bridge p {
+      max-width: 62ch;
+      color: rgba(255,255,255,.70);
+    }
+
+    .bridge-points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bridge-point {
+      padding: 20px 22px;
+      border: 1px solid var(--line-dark);
+      border-radius: 14px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .bridge-point strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #9fe6dc;
+      font-size: .88rem;
+      letter-spacing: .02em;
+    }
+
+    .bridge-point span {
+      color: rgba(255,255,255,.72);
+      font-size: .93rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .about-title {
+      position: sticky;
+      top: 110px;
+    }
+
+    .about-title h2 {
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.45rem, 4.6vw, 4.3rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      font-weight: 500;
+    }
+
+    .about-title p {
+      max-width: 44ch;
+      color: var(--muted);
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-block {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-block h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .about-block p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    /* Contact */
+    .contact-wrap {
+      padding: 56px;
+      border-radius: 28px;
+      color: white;
+      background:
+        linear-gradient(130deg, var(--navy) 0%, #103651 60%, #155963 100%);
+      box-shadow: 0 24px 70px rgba(11,31,51,.18);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: end;
+      gap: 56px;
+    }
+
+    .contact-wrap .eyebrow {
+      color: #9fe6dc;
+    }
+
+    .contact-wrap h2 {
+      max-width: 14ch;
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 4.2vw, 4rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .contact-wrap p {
+      margin-bottom: 0;
+      max-width: 58ch;
+      color: rgba(255,255,255,.72);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-actions .btn-primary {
+      color: var(--navy);
+      background: white;
+      box-shadow: none;
+    }
+
+    .contact-actions .btn-primary:hover {
+      color: white;
+      background: var(--teal);
+    }
+
+    .contact-actions .btn-secondary {
+      border-color: rgba(255,255,255,.22);
+      color: white;
+      background: rgba(255,255,255,.06);
+    }
+
+    .contact-actions .btn-secondary:hover {
+      border-color: rgba(255,255,255,.48);
+      color: white;
+      background: rgba(255,255,255,.10);
+    }
+
+    /* Footer */
+    footer {
+      padding: 34px 0 42px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-row strong {
+      color: var(--navy);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .approach-grid,
+      .bridge-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+        gap: 36px;
+        padding: 64px 0 72px;
+      }
+
+      .hero h1 {
+        max-width: 12ch;
+      }
+
+      .section-head {
+        gap: 18px;
+      }
+
+      .section-head h2 {
+        max-width: 18ch;
+      }
+
+      .region-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-title {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .brand-copy span {
+        display: none;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .nav-cta {
+        min-height: 40px;
+        padding: 0 14px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        padding: 18px;
+      }
+
+      .logo-stage {
+        min-height: 220px;
+      }
+
+      .snapshot-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .contact-wrap {
+        padding: 32px 24px;
+      }
+
+      .bridge-grid {
+        gap: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Akimo Energy Analytics home">
+        <img src="data:image/png;base64,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" alt="Akimo Energy Analytics logo" />
+        <div class="brand-copy">
+          <strong>Akimo Energy Analytics</strong>
+          <span>Research · Energy · Evidence</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#focus">Focus</a>
+        <a href="#approach">Approach</a>
+        <a href="#regional">Research themes</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <a class="nav-cta"
+         href="https://www.linkedin.com/company/106826183/"
+         target="_blank" rel="noopener">
+        LinkedIn
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="reveal">
+          <div class="eyebrow">Independent research & analytics initiative</div>
+
+          <h1>Evidence for <em>clean-energy</em> decisions.</h1>
+
+          <p class="hero-lead">
+            <strong>Akimo Energy Analytics</strong> develops research and analytical insight
+            on renewable energy, green hydrogen, decarbonisation, and climate policy.
+            The initiative is focused on translating complex technical evidence into clearer,
+            decision-relevant understanding for Costa Rica, Latin America, and other emerging contexts.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#focus">Explore research focus</a>
+            <a class="btn btn-secondary"
+               href="https://www.linkedin.com/company/106826183/"
+               target="_blank" rel="noopener">
+              Visit LinkedIn
+            </a>
+          </div>
+
+          <div class="hero-meta" aria-label="Akimo profile summary">
+            <span>Costa Rica & Latin America</span>
+            <span>Energy transition</span>
+            <span>Applied research</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Akimo research profile">
+          <div class="logo-stage">
+            <img src="data:image/png;base64,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" alt="Akimo Energy Analytics" />
+          </div>
+
+          <div class="snapshot">
+            <div class="snapshot-row">
+              <strong>Focus</strong>
+              <span>Renewables, green hydrogen, decarbonisation, climate & energy policy</span>
+            </div>
+            <div class="snapshot-row">
+              <strong>Methods</strong>
+              <span>Geospatial, techno-economic, scenario, uncertainty, and comparative analysis</span>
+            </div>
+            <div class="snapshot-row">
+              <strong>Purpose</strong>
+              <span>Bridge rigorous research and practical clean-energy decision-making</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section alt" id="focus">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Research focus</div>
+            <h2>Core areas of analytical work.</h2>
+          </div>
+          <p>
+            Akimo focuses on questions where energy-system decisions require more than one type of evidence.
+            The objective is to integrate technical, spatial, economic, environmental, and policy dimensions
+            into analysis that is easier to interpret and use.
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <div class="focus-number">01</div>
+            <h3>Renewable energy analysis</h3>
+            <p>
+              Assessment of renewable-resource potential, spatial constraints, infrastructure,
+              and implementation conditions relevant to clean-energy deployment.
+            </p>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-number">02</div>
+            <h3>Green hydrogen intelligence</h3>
+            <p>
+              Evaluation of hydrogen production pathways, costs, location suitability,
+              electricity conditions, deployment scenarios, and enabling policy environments.
+            </p>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-number">03</div>
+            <h3>Decarbonisation pathways</h3>
+            <p>
+              Scenario-based analysis of transition options and the technical, economic,
+              and institutional conditions that influence implementation.
+            </p>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-number">04</div>
+            <h3>Climate and energy policy</h3>
+            <p>
+              Comparative and evidence-based analysis of market structures, policy signals,
+              investment conditions, and barriers affecting clean-energy adoption.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Analytical approach</div>
+            <h2>From fragmented data to structured evidence.</h2>
+          </div>
+          <p>
+            Clean-energy decisions often depend on multiple interacting variables.
+            Akimo combines complementary analytical methods to improve interpretation,
+            reduce false precision, and make assumptions and trade-offs more explicit.
+          </p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-intro reveal">
+            <div class="eyebrow">Evidence to action</div>
+            <h3>Technical depth with practical interpretation.</h3>
+            <p>
+              The goal is not only to identify theoretical potential, but to examine
+              the conditions that determine whether clean-energy options can become viable,
+              investable, and implementable.
+            </p>
+          </article>
+
+          <div class="method-list reveal">
+            <div class="method">
+              <div class="method-index">01</div>
+              <div>
+                <h3>Geospatial modelling</h3>
+                <p>Resource, location, infrastructure, and environmental suitability analysis.</p>
+              </div>
+            </div>
+
+            <div class="method">
+              <div class="method-index">02</div>
+              <div>
+                <h3>Techno-economic assessment</h3>
+                <p>Cost structures, technology assumptions, and deployment conditions.</p>
+              </div>
+            </div>
+
+            <div class="method">
+              <div class="method-index">03</div>
+              <div>
+                <h3>Scenario and uncertainty analysis</h3>
+                <p>Alternative pathways, sensitivity to assumptions, and decision-relevant ranges.</p>
+              </div>
+            </div>
+
+            <div class="method">
+              <div class="method-index">04</div>
+              <div>
+                <h3>Policy and market interpretation</h3>
+                <p>Connecting quantitative findings with institutional and implementation realities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alt" id="regional">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Selected research themes</div>
+            <h2>Regional questions, country-specific evidence.</h2>
+          </div>
+          <p>
+            Akimo's work is particularly interested in clean-energy transitions in Latin America,
+            where strong renewable resources coexist with financing, infrastructure, market,
+            and policy constraints that can slow implementation.
+          </p>
+        </div>
+
+        <div class="region-grid">
+
+          <article class="region-card reveal">
+            <div class="region-kicker">Costa Rica</div>
+            <h3>Renewable systems and green hydrogen</h3>
+            <p>
+              Analysis of clean-energy transition opportunities, hydrogen deployment conditions,
+              renewable-resource advantages, and the relationship between technical potential and implementation.
+            </p>
+          </article>
+
+          <article class="region-card reveal">
+            <div class="region-kicker">Mexico</div>
+            <h3>Spatial and techno-economic hydrogen analysis</h3>
+            <p>
+              State-level and location-based assessment of green hydrogen potential,
+              including spatial suitability, cost conditions, and scenario-based comparison.
+            </p>
+          </article>
+
+          <article class="region-card reveal">
+            <div class="region-kicker">Comparative analysis</div>
+            <h3>Markets, policy, and transition conditions</h3>
+            <p>
+              Comparative examination of electricity-market structures, tariffs,
+              policy frameworks, risk conditions, and other factors shaping clean-energy deployment.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section bridge">
+      <div class="container bridge-grid">
+
+        <div class="reveal">
+          <div class="eyebrow" style="color:#9fe6dc;">Why Akimo</div>
+          <h2>Bridging the evidence-to-action gap.</h2>
+          <p>
+            Important energy decisions are frequently made across fragmented datasets,
+            technical reports, policy documents, cost assumptions, and spatial constraints.
+            Akimo's role is to organize that complexity into a more coherent analytical picture.
+          </p>
+        </div>
+
+        <div class="bridge-points reveal">
+          <div class="bridge-point">
+            <strong>01 · Integrate</strong>
+            <span>Bring technical, economic, spatial, environmental, and policy evidence into one analytical frame.</span>
+          </div>
+
+          <div class="bridge-point">
+            <strong>02 · Interpret</strong>
+            <span>Translate complex findings into clearer implications, trade-offs, and decision-relevant insights.</span>
+          </div>
+
+          <div class="bridge-point">
+            <strong>03 · Inform</strong>
+            <span>Support more evidence-based discussion among researchers, policymakers, investors, and other stakeholders.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-title reveal">
+          <div class="eyebrow">About the initiative</div>
+          <h2>Research-led. Independent. Regionally grounded.</h2>
+          <p>
+            Akimo Energy Analytics is designed as a research and analytical platform
+            for clean-energy questions that sit between academic research and real-world implementation.
+          </p>
+        </div>
+
+        <div class="about-copy">
+          <article class="about-block reveal">
+            <h3>Mission</h3>
+            <p>
+              To produce rigorous, accessible, and context-specific analysis that improves understanding
+              of clean-energy opportunities, constraints, and transition pathways.
+            </p>
+          </article>
+
+          <article class="about-block reveal">
+            <h3>Regional orientation</h3>
+            <p>
+              A particular emphasis is placed on Costa Rica and Latin America,
+              while drawing on international evidence where comparative analysis can improve local interpretation.
+            </p>
+          </article>
+
+          <article class="about-block reveal">
+            <h3>Long-term direction</h3>
+            <p>
+              Akimo aims to strengthen the connection between quantitative research,
+              public-facing communication, partnerships, and decision-support resources for energy and climate action.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-wrap reveal">
+          <div class="contact-grid">
+
+            <div>
+              <div class="eyebrow">Collaboration</div>
+              <h2>Research, analysis, and clean-energy dialogue.</h2>
+              <p>
+                Akimo welcomes research collaboration and exchange related to renewable energy,
+                green hydrogen, decarbonisation, geospatial analysis, and energy-transition policy.
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary"
+                 href="https://www.linkedin.com/company/106826183/"
+                 target="_blank" rel="noopener">
+                Connect on LinkedIn
+              </a>
+
+              <a class="btn btn-secondary" href="#top">
+                Back to top
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span><strong>Akimo Energy Analytics</strong> · Costa Rica</span>
+      <span>© <span id="year"></span> · Research & clean-energy analytics</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
